@@ -182,75 +182,438 @@ This Symmetric matrix:
 30 40 50
 ========================================================================================
 ========================================================================================
+// 5. Write a Java program to check if a matrix is diagonal.
+
+import java.util.Scanner;
+
+class Question05
+{
+	public static void main(String[] arge)
+	{
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.print("Enter the size of row here:");
+	int row= sc.nextInt();
+	
+	System.out.print("Enter the size of col here:");
+	int col= sc.nextInt();
+
+	int arr[][] = new int[row][col];
+	
+	if (row == col)
+	{
+		
+		System.out.println("Enter the elements of array here :");
+		for (int i=0;i<arr.length;i++)
+		{
+			for (int j=0;j<arr.length;j++)
+			{
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		
+		System.out.println("Matrix is :");
+		for (int i=0;i<arr.length;i++)
+		{
+			for (int j=0;j<arr.length;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+
+		int count = 0;
+		int diagonal = 0;
+	
+		for (int i=0;i<arr.length;i++)
+		{
+			for (int j=0;j<arr.length;j++)
+			{
+				if (arr[i][j] == 0 && i==j)
+				{
+					count++;
+				}
+				if (arr[i][j] !=0 && i!=j)
+				{
+					diagonal++;
+				}
+			}
+		}
+		
+		
+		if (count == 0 && diagonal == 0)
+		{
+			System.out.println("This matrix is diagonal.");
+		}
+		else 
+		{
+			System.out.println("This matrix is not diagonal.");
+		}
+		
+	}
+	else 
+	{
+		System.out.println("Row and col are not equal..");
+	}
+	
+	
+	}
+}
+
+
+
+Output is :
+	
+Enter the size of row here:3
+Enter the size of col here:3
+Enter the elements of array here :
+1
+0
+0
+0
+2
+0
+0
+0
+3
+Matrix is :
+1 0 0
+0 2 0
+0 0 3
+This matrix is diagonal.
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 6. Write a Java program to find the sum of the diagonal elements of a matrix.
+
+class Question06
+{
+	public static void main(String[] arge)
+	{
+	int arr1[][] = {{1,0,0},{0,2,0},{0,0,3}};
+	
+	int sum = 0;
+	
+	for (int i=0;i<arr1.length;i++)
+	{
+		for (int j=0;j<arr1.length;j++)
+		{	
+			if (i == j)
+			{
+				sum = sum + arr1[i][j];
+			}	
+		}
+	}
+	
+	System.out.println("Sum of diagonal elements : "+sum);
+
+	}
+
+}
+
+Output is :   Sum of diagonal elements : 6
+
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 7. Write a Java program to find the product of diagonal elements of a matrix.
+
+
+class Question07
+{
+	public static void main(String[] arge)
+	{
+	int arr1[][] = {{1,0,0},{0,2,0},{0,0,3}};
+	
+	int pro = 1;
+	
+	for (int i=0;i<arr1.length;i++)
+	{
+		for (int j=0;j<arr1.length;j++)
+		{	
+			if (i == j)
+			{
+				pro = pro * arr1[i][j];
+			}	
+		}
+	}
+	
+	System.out.println("Product of diagonal elements is : "+pro);
+
+	}
+
+}
+
+Output is :     Product of diagonal elements is : 6
+
+
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+//8. Write a Java program to find the sum of each row and column of a matrix.
+
+class Question08
+{
+	public static void main(String[] arge)
+	{
+	int arr1[][] = {{1,2,3},{4,5,6},{7,8,9}};
+	
+	for (int i=0;i<arr1.length;i++)
+	{
+		int sum = 0;
+		int colsum = 0;
+		for (int j=0;j<arr1.length;j++)
+		{	
+			sum = sum + arr1[i][j];
+			colsum = colsum + arr1[j][i];	
+		}
+		System.out.println("Row number "+(i+1)+" and sum is:"+sum);
+		System.out.println("Col number "+(i+1)+" and sum is:"+colsum);
+	}
+	}
+
+}
+
+Output is :
+	
+Row number 1 and sum is:6
+Col number 1 and sum is:12
+Row number 2 and sum is:15
+Col number 2 and sum is:15
+Row number 3 and sum is:24
+Col number 3 and sum is:18
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 9. Write a Java program to find the maximum element in a matrix.
+
+
+class Question09
+{
+	public static void main(String[] arge)
+	{
+	int arr[][] = {{11,22,55},{33,66,99},{88,77,10}};
+	
+	int max = arr[0][0];
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{
+			if (arr[i][j]>max)
+			{
+				max = arr[i][j];
+			}
+		}
+	}
+		
+	System.out.println("Maximum element in matrix is:"+max);
+
+	}
+}
+
+Output is : Maximum element in matrix is:99.
+
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 10. Write a Java program to find the minimum element in a matrix.
+
+
+class Question10
+{
+	public static void main(String[] arge)
+	{
+	int arr[][] = {{12,22,55},{33,66,99},{88,77,10}};
+	
+	int min= arr[0][0];
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{
+			if (arr[i][j]<min)
+			{
+				min = arr[i][j];
+			}
+		}
+	}
+		
+	System.out.println("Minimum element in matrix is:"+min);
+
+	}
+}
+
+
+Output is :    Minimum element in matrix is:10
+
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 11. Write a Java program to sort the elements of each row of a matrix.
+
+
+class Question11
+{
+	public static void main(String[] arge)
+	{
+	int arr[][] = {{5,9,4},{8,3,6},{7,4,2}};
+
+	System.out.println("Matrix is :");
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{	
+			System.out.print(arr[i][j]+" ");
+		}
+		System.out.println();
+	}
+	
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{
+			for (int k=0;k<arr.length;k++)
+			{	
+				if (arr[i][j]<arr[i][k])
+				{
+					int temp = arr[i][j];
+					arr[i][j] = arr[i][k];
+					arr[i][k] = temp;
+				}
+			}
+				
+		}
+	}
+	
+	
+	System.out.println("Sorted row only in matrix:");
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{	
+			System.out.print(arr[i][j]+" ");
+		}
+		System.out.println();
+	}
+
+	}
+}
+
+Output is :
+
+Matrix is :
+5 9 4
+8 3 6
+7 4 2
+Sorted row only in matrix:
+4 5 9
+3 6 8
+2 4 7
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
+// 12. Write a Java program to find the frequency of a given element in a matrix.
+
+import java.util.Scanner;
+
+class Question12
+{
+	public static void main(String[] arge)
+	{
+	Scanner sc = new Scanner(System.in);
+	int arr[][] = {{5,9,4},{8,3,6},{7,4,2},{5,9,4},{8,3,6},{7,4,2}};
+	
+	System.out.println("Enter the element you want to get frequency :");
+	int fre = sc.nextInt();
+
+	int count = 0;
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr[i].length;j++)		
+		{
+			if (fre == arr[i][j])
+			{
+				count++;	
+			}	
+		}
+		
+	}
+	
+	System.out.println("The frequency of elements "+fre+" is count : "+count);
+
+	}
+}
+
+OutPut is :
+	
+Enter the element you want to get frequency :
+4
+The frequency of elements 4 is count : 4
 
 ========================================================================================
 ========================================================================================
 
-========================================================================================
-========================================================================================
 
 ========================================================================================
 ========================================================================================
+// 14. Write a Java program to perform scalar multiplication on a matrix.
 
-========================================================================================
-========================================================================================
+import java.util.Scanner;
 
-========================================================================================
-========================================================================================
 
-========================================================================================
-========================================================================================
+class Question14
+{
+	public static void main(String[] arge)
+	{
+	Scanner sc = new Scanner(System.in);
+	
+	int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};
+	
+	System.out.println("Enter the scalar element here:");
+	int scalar = sc.nextInt();
+	
+	System.out.println("matrix is:");
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{
+			System.out.print(arr[i][j]+" ");
+		}
+		System.out.println();
+	}
 
-========================================================================================
-========================================================================================
+	System.out.println("Scalar multiplication now array is:");
+	for (int i=0;i<arr.length;i++)
+	{
+		for (int j=0;j<arr.length;j++)
+		{
+			arr[i][j]=arr[i][j]*scalar;
+			System.out.print(arr[i][j]+" ");
+		}
+		System.out.println();
+	}
+	
+	}
+}
 
-========================================================================================
-========================================================================================
+OutPut is :
 
-========================================================================================
-========================================================================================
+Enter the scalar element here:
+5
+matrix is:
+1 2 3
+4 5 6
+7 8 9
+Scalar multiplication now array is:
+5 10 15
+20 25 30
+35 40 45
 
 ========================================================================================
 ========================================================================================
