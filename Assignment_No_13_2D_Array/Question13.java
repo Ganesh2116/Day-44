@@ -6,7 +6,6 @@ class Question13
 	{	
 	int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};
 	
-	int arrc[][] = new int[arr.length][arr.length];
 
 	System.out.println("Matrix is:");
 	for (int i=0;i<arr.length;i++)
@@ -17,39 +16,13 @@ class Question13
 		}
 		System.out.println();
 	}
-	
-
-	//transpose
-	for (int i=0;i<arr.length;i++)
-	{
-		for (int j=0;j<arr.length;j++)
-		{
-			arrc[i][j] = arr[j][i];
-		}
-	}
-	
-	//revsred order
-	for (int i=0;i<arrc.length;i++)
-	{
-		for (int j=0;j<arrc.length;j++)
-		{
-			for (int k=0;k<arrc.length;k++)
-			{	
-				int temp = arrc[i][k];
-				arrc[i][k] = arrc[i][j];
-				arrc[i][j] = temp;
-			}
-				
-		}
-	}
-
 
 	System.out.println("90 degree clockwise Matrix is:");
-	for (int i=0;i<arrc.length;i++)
+	for (int i=0;i<arr.length;i++)
 	{
-		for (int j=0;j<arrc.length;j++)
+		for (int j=arr.length-1;j>=0;j--)
 		{
-			System.out.print(arrc[i][j]+" ");
+			System.out.print(arr[j][i]+" ");
 		}
 		System.out.println();
 	}
